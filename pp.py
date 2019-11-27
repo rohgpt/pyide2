@@ -18,6 +18,7 @@ def openfile():
 def save():
     filename=fbox.asksaveasfilename(initialdir=r"./",title="Save file",filetypes=[("All files","*.*")] )
 
+
 Lb = tk.Listbox(window) 
 Lb.insert(1, 'C')
 
@@ -29,9 +30,14 @@ Lb.insert(11, 'C#')
 Lb.insert(13, 'Scala') 
 Lb.insert(15, 'Javascript') 
 Lb.selection_set( first = 0 )
-textbox=tk.Text(window,wrap=tk.NONE,width=300,height=29)
-inputtextbox=tk.Text(window,wrap=tk.NONE,width=30,height=10)
-outputtextbox=tk.Text(window,wrap=tk.NONE,width=60,height=2)
+frame1=tk.Frame(window)
+
+#scrollbar
+scrollbar = tk.Scrollbar(frame1)
+scrollbar.pack(side=tk.RIGHT,fill=tk.Y)
+textbox=tk.Text(frame1,wrap=tk.NONE,yscrollcommand = scrollbar.set ,width=100,height=29)
+inputtextbox=tk.Text(window,wrap=tk.CHAR,width=30,height=10)
+outputtextbox=tk.Text(window,wrap=tk.CHAR,width=60,height=2)
 input_text=textbox.get('1.0','10.0')
 print(input_text)
 
@@ -50,8 +56,10 @@ label2 = tk.Label(window, text='OUTPUT',height=4)
 #Output Button
 Run =tk.Button(window,text="Run",bg="burlywood1",width=10,height=3)
 #grid
+scrollbar.config( command = textbox.yview )
 Lb.grid(row=0,column=0,ipadx=10,ipady=10,sticky='ns'); 
-textbox.grid(row=0,column=1,columnspan=20,sticky='nw',padx=10)
+textbox.pack(side=tk.LEFT)
+frame1.grid(row=0,column=1,columnspan=20,padx=10)
 
 label1.grid(row=1,column=0,sticky='e')
 inputtextbox.grid(row=1,column=1,pady=20)

@@ -36,9 +36,9 @@ menu1.add_cascade(label="About",menu=about)
 about.add_command(label="Info",command=aboutus)
 
 #adding function to file menu************************************************
-def openfile(event):
+def openfile(event=None):
     filename=fbox.askopenfilename(initialdir=r"./",title="Open file",filetypes=[("All files","*.*")] )
-def save(event):
+def save(event=None):
     filename=fbox.asksaveasfilename(initialdir=r"./",title="Save file",filetypes=[("All files","*.*")] )
 #children of file menu***************************************************************************
 fileMenu.add_command(label="New",accelerator='Ctrl+N',command=lambda event:textbox.delete(1.0,tk.END))

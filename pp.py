@@ -19,9 +19,14 @@ editMenu=tk.Menu(menu1,tearoff=False)
 
 def aboutus():
       frame2 = tk.Toplevel(window)
-      display = tk.Label(frame2, text="This is Text Editor Designed for Coding in All the Language....",width=50,height=20)
       
-      display.pack()    
+      display = tk.Label(frame2, text=(""" This is Text Editor Designed for Coding in All the Language....\n Team member : \n
+       1)Saurabh Kumar \n2)Rohit Kumar Gupta\n 3)Aanisha Bhattacharya\n 4)Ritika pal"""),width=50,height=30,bg="skyblue",foreground="dark red",font=('Arial Rounded MT',16,'bold','italic'))
+     # italic_icon = tk.PhotoImage(file='icons/Bold.png')
+      #display2 = ttk.Button(t,image=italic_icon)
+      display.pack()
+      
+      #display2.pack()    
 theme=tk.Menu(menu1,tearoff=False)
 about=tk.Menu(menu1,tearoff=False)
 menu1.add_cascade(label="File",menu=fileMenu)
